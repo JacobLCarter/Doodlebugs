@@ -8,6 +8,7 @@ class Ant : public Critter
 public:
 	Ant();
 	~Ant();
+	void antMove();
 
 private:
 
