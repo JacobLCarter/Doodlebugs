@@ -123,7 +123,7 @@ void fillArray(int *array, int s)
 
 /*************************************************************************
  * Name: mainMenu
- * Description: Prints the main  menu to the screen, allows the user to make
+ * Description: Prints the main menu to the screen, allows the user to make
  * one of the choices listed, and returns the choice to main.
  ************************************************************************/
 int mainMenu()
@@ -145,6 +145,10 @@ int mainMenu()
     return choice;
 }
 
+/*************************************************************************
+ * Name: replal
+ * Description: Asks the user if they would like to replay or quit 
+ ************************************************************************/
 char replay()
 {
     char choice;
@@ -159,44 +163,3 @@ char replay()
 
     return choice;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
