@@ -10,19 +10,17 @@ public:
     Board();
     Board(int, int);
     ~Board();
-    void setRows(int);
-    void setColumns(int);
-    int getRows();
-    int getColumns();
-    void initBoard();
+    void createBoard();
+    void initializeBoard();
+    void addAnt(int, int);
+    void addDoodlebug(int, int);
+    void removeCritter(Critter*);
     void printBoard();
     void avoidEdge(Critter*);
     void deleteBoard();
 private:
-    char **theBoard;
+    Critter ***theBoard;
     int rows;
     int columns;
-    int currentRow;
-    int currentColumn;
 };
 #endif
