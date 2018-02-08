@@ -7,3 +7,7 @@ Critter::Critter()
 Critter::~Critter()
 {
 }
+
+Critter::breed(); {
+	if 
+}
