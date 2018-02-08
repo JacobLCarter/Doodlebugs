@@ -11,7 +11,6 @@ char getChar();
 int setRange(int size, int lowerRange, int upperRange);
 void fillArray(int*, int); 
 int mainMenu();
-int charSelection(int);
 char replay();
 
 #endif

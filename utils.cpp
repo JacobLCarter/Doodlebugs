@@ -134,36 +134,13 @@ int mainMenu()
     do
     {
         cout << endl;
-        cout << "Fantasy Combat 2018 Main Menu" << endl << endl;
-        cout << "1. Character Selection" << endl;
+        cout << "(Program Name) Main Menu" << endl << endl;
+        cout << "1. ..... " << endl;
         cout << "2. Exit the Program" << endl << endl;
         cout << "Please enter a choice 1-2: ";
         choice = getInt();
     }
     while (setRange(choice, 1, 2) != 0);
-
-    return choice;
-}
-
-int charSelection(int p)
-{
-    int choice;
-
-    do
-    {
-        std::cout << std::endl;
-        std::cout << "Please select the number corresponding to the "
-            << "character you would like to use for player " << p << ": " 
-            << std::endl << std::endl;
-        std::cout << "1. Vampire" << std::endl;
-        std::cout << "2. Barbarian" << std::endl;
-        std::cout << "3. Blue Men" << std::endl;
-        std::cout << "4. Medusa" << std::endl;
-        std::cout << "5. Harry Potter" << std::endl;
-        std::cout << "Please enter a choice 1-5: ";
-        choice = getInt();
-    }
-    while (setRange(choice, 1, 5) != 0);
 
     return choice;
 }
