@@ -1,4 +1,7 @@
 #include "board.hpp"
+#include <cstdlib>
+#include <ctime>
+#include <typeinfo>
 
 Board::Board()
     : rows(20), columns(20)
@@ -14,76 +17,89 @@ Board::~Board()
 {
 }
 
-void Board::setRows(int r);
+void Board::createBoard()
 {
-    this->rows = r;
-}
+    unsigned seed = time(NULL);
+    srand(seed);
 
-void Board::setColumns(int c)
-{
-    this->columns = c;
-}
-
-void Board::setCurrentRow(int cr)
-{
-    this->currentRow = cr;
-}
-
-void Board::setCurrentColumn(int cc)
-{
-    this->currentColumn = cc;
-}
-
-int Board::getRows()
-{
-    return this->rows;
-}
-
-int Board::getColumns()
-{
-    return this->columns;
-}
-
-int Board::getCurrentRow()
-{
-    return this->currentRow;
-}
-
-int Board::getCurrentColumn()
-{
-    return this->currentColumn;
-}
-
-void Board::initBoard()
-{
-    theBoard = new char*[rows];
+    theBoard = new Critter**[rows];
     for (int i = 0; i < rows; i++)
     {
-        theBoard[i] = new char[columns];
+        theBoard[i] = new Critter*[columns];
+    
+        for (int j = 0; j < columns; j++)
+        {
+            theBoard[i][j] = new Critter();
+        }
     }
+}
+
+void Board::initializeBoard()
+{
+    int tempX, tempY;
+
+    for (int i = 0; i < 5; i++)
+    {
+        do
+        {
+            tempX = rand() % 20;
+            tempY = rand() % 20;
+        }
+        while (theBoard[tempX][tempY] != NULL);
+
+        theBoard[tempX][tempY] = new Ant;
+    }
+
+    for (int i = 0; i < 100; i++)
+    {
+        do
+        {
+            tempX = rand() % 20;
+            tempY = rand() % 20;
+        }
+        while (theBoard[tempX][tempY] != NULL);
+    
+        theBoard[tempX][tempY] = new Doodlebug;
+    }
+}
+
+void Board::addAnt(int x, int y)
+{
+    while (theBoard[x][y] != NULL)
+    {
+        theBoard[x][y] = new Ant;
+    }
+}
+
+void Board::addDoodlebug(int x, int y)
+{
+    while (theBoard[x][y] != NULL)
+    {
+        theBoard[x][y] = new Doodlebug;
+    }
+}
+void Board::removeCritter(Critter *crit)
+{
+    delete theBoard[crit->getX()][crit->getY()];
 }
 
 void Board::printBoard()
 {
-    std::cout << string((columns), '-') << std::endl;
+    std::cout << std::string((columns), '-') << std::endl;
     for (int i = 0; i < rows; i++)
     {
         std::cout << "| ";
         for (int j = 0; j < columns; j++)
         {
-            std::cout << theBoard[i][j];
+            std::cout << theBoard[i][j]->printChar();
         }
-        std::cout << " |" << endl;
+        std::cout << " |" << std::endl;
     }
-    std::cout << string((columns), '-') << std::endl;
+    std::cout << std::string((columns), '-') << std::endl;
 }
 
 void Board::avoidEdge(Critter *crit)
 {
-    //will be uncommented (and potentially reworked) upon confirmation
-    //of get and set functions in the critter class
-    
-    /*
     if (crit->getX() < 0)
     {
         crit->setX(rows - 1);
@@ -103,14 +119,18 @@ void Board::avoidEdge(Critter *crit)
     {
         crit->setY(0);
     }
-    */
 }
 
 void Board::deleteBoard()
 {
     for (int i = 0; i < rows; i++)
     {
+        for (int j = 0; j < columns; j++)
+        {
+            delete theBoard[i][j];
+        }
         delete [] theBoard[i];
     }
-    delete [] array;
+    delete [] theBoard;
+    theBoard = NULL;
 }
