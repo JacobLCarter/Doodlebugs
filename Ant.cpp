@@ -5,8 +5,8 @@
 
 Ant::Ant() {			//constuctor to place Ants in random locations on 20 by 20 grid, replace 20 with number of rows/columns
 	setCritType('O');	// when determined(variable if user defined grid size)
-	setColPosition(rand() % 20 + 1);
-	setRowPosition(rand() % 20 + 1);
+	setColPosition(rand() % 20);
+	setRowPosition(rand() % 20);
 	setCritAge(0);
 }
 
@@ -20,7 +20,7 @@ Ant::Ant(int row, int col) {
 Ant::~Ant() {
 }
 
-void Ant::critMove(Critter* board1[], int size) {
+void Ant::move(Critter* board1[], int size) {
 	int direction = rand() % 4 + 1;
 	switch (direction) {
 	case 1:
@@ -87,7 +87,7 @@ void Ant::critMove(Critter* board1[], int size) {
 	this->setCritAge(getCritAge() + 1);
 }
 
-void Ant::critBreed(Critter* board1[], int size) {
+void Ant::breed(Critter* board1[], int size) {
 	if (this->getCritAge() == 3) {
 
 

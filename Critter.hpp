@@ -1,5 +1,3 @@
-
-
 #ifndef CRITTER_HPP
 #define CRITTER_HPP
 
@@ -14,18 +12,13 @@ public:
 	//~Critter();
 	int getColPosition();
 	void setColPosition(int);
-	
 	int getRowPosition();
 	void setRowPosition(int);
-	
 	int getCritAge();
 	void setCritAge(int);
-
 	char getCritType();
 	void setCritType(char);
-	virtual void critMove(Critter*[], int)=0;
-	virtual void critBreed(Critter*[], int) = 0;
-
+	virtual void move(Critter*[], int)=0;
+	virtual void breed(Critter*[], int) = 0;
 };
-
 #endif
