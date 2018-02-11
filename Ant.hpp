@@ -11,7 +11,7 @@ public:
 	Ant();
 	Ant(int, int);
 	~Ant();
-	virtual void move(Critter*[], int );
-	virtual void breed(Critter*[], int );
+	virtual void critMove(Critter*[], int );
+	virtual void critBreed(Critter*[], int );
 };
 #endif

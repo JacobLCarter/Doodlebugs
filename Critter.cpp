@@ -1,8 +1,9 @@
+
 #include "Critter.hpp"
 
 //Critter::Critter()
-//    : critType(' ')
 //{
+//	critType = ' ';
 //}
 
 //Critter::~Critter()

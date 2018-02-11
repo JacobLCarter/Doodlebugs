@@ -20,7 +20,7 @@ Doodlebug::Doodlebug(int row, int col) {
 Doodlebug::~Doodlebug() {
 }
 
-void Doodlebug::move(Critter* board1[], int size) {
+void Doodlebug::critMove(Critter* board1[], int size) {
 	int direction = rand() % 4 + 1;
 	switch (direction) {
 	case 1:
@@ -87,7 +87,7 @@ void Doodlebug::move(Critter* board1[], int size) {
 	this->setCritAge(getCritAge() + 1);
 }
 
-void Doodlebug::breed(Critter* board1[], int size) {
+void Doodlebug::critBreed(Critter* board1[], int size) {
 	if (this->getCritAge() == 3) {
 
 
