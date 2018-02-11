@@ -1,7 +1,7 @@
 #ifndef BOARD_HPP
 #define BOARD_HHP
 
-#include "critter.hpp"
+#include "Critter.hpp"
 #include <iostream>
 
 class Board
