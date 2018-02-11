@@ -1,14 +1,6 @@
-
 #include "Critter.hpp"
 
-//Critter::Critter()
-//{
-//	critType = ' ';
-//}
 
-//Critter::~Critter()
-//{
-//}
 
 int Critter::getColPosition() {
 	return colPosition;

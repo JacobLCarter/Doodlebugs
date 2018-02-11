@@ -1,4 +1,3 @@
-
 #ifndef ANT_HPP
 #define ANT_HPP
 
@@ -6,12 +5,14 @@
 
 class Ant : public Critter 
 {
-private:
 public:
 	Ant();
 	Ant(int, int);
 	~Ant();
-	virtual void critMove(Critter*[], int );
-	virtual void critBreed(Critter*[], int );
+	virtual void critMove(Critter*** );
+	virtual void critBreed(Critter***);
+
+private:
+
 };
 #endif
