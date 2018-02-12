@@ -10,20 +10,28 @@
 #include "Doodlebug.hpp"
 #include <cstdlib>
 #include <ctime>
-#include <typeinfo>
 
 Board::Board()
     : rows(20), columns(20)
 {
+    createBoard();
+    initializeBoard();
 }
 
 Board::Board(int r, int c)
     : rows(r), columns(c)
 {
+    createBoard();
+    initializeBoard();
 }
 
 Board::~Board()
 {
+}
+
+Critter*** Board::getBoard()
+{
+    return theBoard;
 }
 
 /*******************************************************************************
@@ -69,7 +77,7 @@ void Board::initializeBoard()
         }
         while (theBoard[tempX][tempY] != NULL);
 
-        theBoard[tempX][tempY] = new Doodlebug;
+        addDoodlebug(tempX, tempY);
     }
 
     //add 100 Ants to the board to start the game
@@ -82,7 +90,7 @@ void Board::initializeBoard()
         }
         while (theBoard[tempX][tempY] != NULL);
     
-        theBoard[tempX][tempY] = new Ant;
+        addAnt(tempX, tempY);
     }
 }
 
@@ -93,9 +101,9 @@ void Board::initializeBoard()
 void Board::addAnt(int x, int y)
 {
     //if the space is not occupied, create an Ant
-    if (theBoard[x][y] != NULL)
+    if (theBoard[x][y] == NULL)
     {
-        theBoard[x][y] = new Ant;
+        theBoard[x][y] = new Ant(x, y);
     }
 }
 
@@ -106,9 +114,9 @@ void Board::addAnt(int x, int y)
 void Board::addDoodlebug(int x, int y)
 {
     //if the space is not occupied, create a Doodlebug
-    if (theBoard[x][y] != NULL)
+    if (theBoard[x][y] == NULL)
     {
-        theBoard[x][y] = new Doodlebug;
+        theBoard[x][y] = new Doodlebug(x, y);
     }
 }
 
@@ -116,9 +124,10 @@ void Board::addDoodlebug(int x, int y)
  * Name: removeCritter
  * Description: Deletes a critter from the specified position on the board 
  ******************************************************************************/
-void Board::removeCritter(Critter *crit)
+void Board::removeCritter(int x, int y)
 {
-    delete theBoard[crit->getRowPosition()][crit->getColPosition()];
+    delete theBoard[x][y];
+    theBoard[x][y] = NULL;
 }
 
 /*******************************************************************************

@@ -10,11 +10,12 @@ public:
     Board();
     Board(int, int);
     ~Board();
+    Critter*** getBoard();
     void createBoard();
     void initializeBoard();
     void addAnt(int, int);
     void addDoodlebug(int, int);
-    void removeCritter(Critter*);
+    void removeCritter(int, int);
     void printBoard();
     void avoidEdge(Critter*);
     void deleteBoard();
