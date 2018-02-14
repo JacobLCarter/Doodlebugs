@@ -48,7 +48,7 @@ void Game::playGame()
                         /*if the doodleBug is old enough to breed and it has been 8
                          days since breeding. We need a member for timeSinceBreeding in
                          the doodleBug class that is set when a critter moves. */
-                        if (doodleBugPtr->getCritAge() >= 8 && doodleBugPtr->getCritAge() == 8)
+                        if (doodleBugPtr->getCritAge() % 8 == 0)
                         {
                             doodleBugPtr->critBreed(boardObj.getBoard());
                         }
@@ -84,7 +84,7 @@ void Game::playGame()
                         antPtr->setJustMoved(true);
 
                         //if ant is older that 3 and has not bred in the last 3 days
-                        if (antPtr->getCritAge() >= 3 && antPtr->getCritAge() == 3)
+                        if (antPtr->getCritAge() % 3 == 0)
                         {
                             antPtr->critBreed(boardObj.getBoard());
                         }
