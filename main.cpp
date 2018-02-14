@@ -6,7 +6,8 @@
  * and prey simulation.
  ******************************************************************************/
 
-#include "game.hpp"
+#include "Game.hpp"
+#include "utils.hpp"
 #include <iostream>
 #include <string>
 
@@ -42,8 +43,10 @@ int main()
    //loop as long as user wants to keep starting new simulations
    while(menuSelect == 1) {
       //start a new simulation
-      Game newGame;
-      newGame.playRound();
+      std::cout << "Enter the number of steps for the simulation to run: ";
+      int steps = getInt(false);
+      Game newGame(steps);
+      newGame.playGame();
 
       //ask if user wants to play again
       std::cout << "Would you like to run another simulation?" << std::endl;

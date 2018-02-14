@@ -4,7 +4,6 @@
 class Critter
 {
 public:
-	
 	int getColPosition();
 	void setColPosition(int);
 	
@@ -16,13 +15,18 @@ public:
 
 	char getCritType();
 	void setCritType(char);
-	virtual void critMove(Critter***)=0;
+
+    bool getJustMoved();
+    void setJustMoved(bool);
+
+	virtual void critMove(Critter***) = 0;
 	virtual void critBreed(Critter***) = 0;
 protected:
 	int colPosition;
 	int rowPosition;
 	int critAge;
 	char critType;
+    bool justMoved;
 };
 
 #endif

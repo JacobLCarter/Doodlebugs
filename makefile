@@ -3,11 +3,9 @@ CXXFLAGS = -g
 CXXFLAGS += -Wall
 CXXFLAGS += -std=c++11
 
-SRCES = board.cpp Critter.cpp Ant.cpp Critter.cpp Doodlebug.cpp game.cpp\
-		utils.cpp main.cpp
-HDRS = board.hpp Critter.hpp Ant.hpp Critter.hpp Doodlebug.hpp game.hpp \
-	   utils.hpp
-OBJS = board.o Critter.o Ant.o Critter.o Doodlebug.o game.o utils.o main.o
+SRCES = board.cpp Critter.cpp Ant.cpp Doodlebug.cpp Game.cpp utils.cpp main.cpp
+HDRS = board.hpp Critter.hpp Ant.hpp Doodlebug.hpp game.hpp utils.hpp
+OBJS = board.o Critter.o Ant.o Doodlebug.o Game.o utils.o main.o
 
 predPrey: ${OBJS} 
 	${CXX} ${CXXFLAGS} ${OBJS} -o predPrey -ggdb
@@ -24,8 +22,8 @@ Ant.o: Ant.cpp Ant.hpp
 Doodlebug.o: Doodlebug.cpp Doodlebug.hpp
 	${CXX} -c Doodlebug.cpp
 
-game.o: game.cpp game.hpp
-	${CXX} -c game.cpp
+Game.o: Game.cpp Game.hpp
+	${CXX} -c Game.cpp
 
 utils.o: utils.cpp utils.hpp
 	${CXX} -c utils.cpp

@@ -1,7 +1,8 @@
 #ifndef BOARD_HPP
 #define BOARD_HHP
 
-#include "Critter.hpp"
+#include "Ant.hpp"
+#include "Doodlebug.hpp"
 #include <iostream>
 
 class Board
@@ -11,6 +12,8 @@ public:
     Board(int, int);
     ~Board();
     Critter*** getBoard();
+    int getRows();
+    int getCols();
     void createBoard();
     void initializeBoard();
     void addAnt(int, int);

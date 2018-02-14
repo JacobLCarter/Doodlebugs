@@ -5,12 +5,11 @@
 
 class Doodlebug : public Critter 
 {
-private:
 public:
 	Doodlebug();
 	Doodlebug(int, int);
 	~Doodlebug();
-	virtual void critMove(Critter*[], int );
-	virtual void critBreed(Critter*[], int );
+	virtual void critMove(Critter***);
+	virtual void critBreed(Critter***);
 };
 #endif

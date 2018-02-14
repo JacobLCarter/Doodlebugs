@@ -6,8 +6,6 @@
  ******************************************************************************/
 
 #include "board.hpp"
-#include "Ant.hpp"
-#include "Doodlebug.hpp"
 #include <cstdlib>
 #include <ctime>
 
@@ -32,6 +30,16 @@ Board::~Board()
 Critter*** Board::getBoard()
 {
     return theBoard;
+}
+
+int Board::getRows()
+{
+    return this->rows;
+}
+
+int Board::getCols()
+{
+    return this->columns;
 }
 
 /*******************************************************************************
@@ -103,7 +111,7 @@ void Board::addAnt(int x, int y)
     //if the space is not occupied, create an Ant
     if (theBoard[x][y] == NULL)
     {
-        theBoard[x][y] = new Ant(x, y);
+        theBoard[x][y] = new Ant(x, y); 
     }
 }
 
@@ -116,7 +124,7 @@ void Board::addDoodlebug(int x, int y)
     //if the space is not occupied, create a Doodlebug
     if (theBoard[x][y] == NULL)
     {
-        theBoard[x][y] = new Doodlebug(x, y);
+        theBoard[x][y] = new Doodlebug(x, y);    
     }
 }
 

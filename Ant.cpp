@@ -1,5 +1,4 @@
 #include "Ant.hpp"
-#include "Test.hpp"
 #include <stdlib.h>
 
 Ant::Ant()
@@ -12,6 +11,8 @@ Ant::Ant(int row, int col) {
 	setRowPosition(row);
 	setColPosition(col);
 	setCritAge(0);
+    setJustMoved(false);
+    
 }
 
 Ant::~Ant()
@@ -22,18 +23,26 @@ void Ant::critMove(Critter*** boardPtr) {
 	int direction = rand() % 4 + 1;
 	switch (direction) {
 	case 1: if (boardPtr[this->getRowPosition()-1][this->getColPosition()] == NULL) {		//up
-		this->setRowPosition(this->getRowPosition() - 1);
+		boardPtr[this->getRowPosition() - 1][this->getColPosition()] = this;			//move ant in the array
+		boardPtr[this->getRowPosition()][this->getColPosition()] = NULL;				//set old position to null
+		this->setRowPosition(this->getRowPosition() - 1);								//change position in ant object
 	}
 			break;
 	case 2: if (boardPtr[this->getRowPosition()][this->getColPosition()+1] == NULL) {		//right
+		boardPtr[this->getRowPosition()][this->getColPosition() + 1] = this;
+		boardPtr[this->getRowPosition()][this->getColPosition()] = NULL;
 		this->setColPosition(this->getColPosition() + 1);
 	}
 			break;
 	case 3: if (boardPtr[this->getRowPosition()+1][this->getColPosition()] == NULL) {		//down
+		boardPtr[this->getRowPosition() + 1][this->getColPosition()] = this;
+		boardPtr[this->getRowPosition()][this->getColPosition()] = NULL;
 		this->setRowPosition(this->getRowPosition() + 1);
 	}
 			break;
 	case 4: if (boardPtr[this->getRowPosition()][this->getColPosition()-1] == NULL) {		//left
+		boardPtr[this->getRowPosition()][this->getColPosition() + 1] = this;
+		boardPtr[this->getRowPosition()][this->getColPosition()] = NULL;
 		this->setColPosition(this->getColPosition() - 1);
 	}
 			break;
