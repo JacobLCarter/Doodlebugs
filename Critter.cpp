@@ -36,3 +36,14 @@ bool Critter::getJustMoved() {
 void Critter::setJustMoved(bool move) {
     justMoved = move;
 }
+
+bool Critter::getLastEaten()
+{
+    return lastEaten;
+}
+
+void Critter::setLastEaten(int days)
+{
+    lastEaten = days;
+}
+

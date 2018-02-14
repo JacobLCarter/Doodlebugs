@@ -54,7 +54,7 @@ void Game::playGame()
                         }
 
                         //if the critter has not eaten in 3 time steps it dies (ie nullptr)
-                        if (doodleBugPtr->getCritAge() >= 8 && doodleBugPtr->getHasEaten() >= 8) 
+                        if (doodleBugPtr->getCritAge() >= 8 && doodleBugPtr->getLastEaten() >= 8) 
                         {
                             boardObj.removeCritter(i, j);
                         }

@@ -19,7 +19,10 @@ public:
     bool getJustMoved();
     void setJustMoved(bool);
 
-	virtual void critMove(Critter***) = 0;
+	bool getLastEaten();
+    void setLastEaten(int);
+
+    virtual void critMove(Critter***) = 0;
 	virtual void critBreed(Critter***) = 0;
 protected:
 	int colPosition;
@@ -27,5 +30,6 @@ protected:
 	int critAge;
 	char critType;
     bool justMoved;
+    bool lastEaten;
 };
 #endif

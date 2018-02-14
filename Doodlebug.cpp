@@ -19,16 +19,6 @@ Doodlebug::~Doodlebug()
 {
 }
 
-bool Doodlebug::getLastEaten()
-{
-    return lastEaten;
-}
-
-bool Doodlebug::setLastEaten(int days)
-{
-    lastEaten = days;
-}
-
 void Doodlebug::critMove(Critter*** boardPtr) {
 	int direction = rand() % 4 + 1;
 	switch (direction) {

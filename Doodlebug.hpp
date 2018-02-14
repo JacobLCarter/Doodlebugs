@@ -11,9 +11,5 @@ public:
 	~Doodlebug();
 	virtual void critMove(Critter***);
 	virtual void critBreed(Critter***);
-    bool getLastEaten();
-    void setLastEaten(int);
-private:
-    bool lastEaten;
 };
 #endif
