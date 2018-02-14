@@ -12,11 +12,21 @@ Doodlebug::Doodlebug(int row, int col) {
 	setColPosition(col);
 	setCritAge(0);
     setJustMoved(false);
-    setHasEaten(false);
+    setLastEaten(0);
 }
 
 Doodlebug::~Doodlebug()
 {
+}
+
+bool Doodlebug::getLastEaten()
+{
+    return lastEaten;
+}
+
+bool Doodlebug::setLastEaten(int days)
+{
+    lastEaten = days;
 }
 
 void Doodlebug::critMove(Critter*** boardPtr) {

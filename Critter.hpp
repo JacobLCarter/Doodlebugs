@@ -19,9 +19,6 @@ public:
     bool getJustMoved();
     void setJustMoved(bool);
 
-    bool getHasEaten();
-    void setHasEaten(bool);
-
 	virtual void critMove(Critter***) = 0;
 	virtual void critBreed(Critter***) = 0;
 protected:
@@ -30,6 +27,5 @@ protected:
 	int critAge;
 	char critType;
     bool justMoved;
-    bool hasEaten;
 };
 #endif

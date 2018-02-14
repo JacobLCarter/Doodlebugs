@@ -36,11 +36,3 @@ bool Critter::getJustMoved() {
 void Critter::setJustMoved(bool move) {
     justMoved = move;
 }
-
-bool Critter::getHasEaten() {
-    return hasEaten;
-}
-
-void Critter::setHasEaten(bool eat) {
-    hasEaten = eat;
-}
