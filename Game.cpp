@@ -54,9 +54,9 @@ void Game::playGame()
                         }
 
                         //if the critter has not eaten in 3 time steps it dies (ie nullptr)
-                        if (doodleBugPtr->getCritAge() >= 3)
+                        if (doodleBugPtr->getCritAge() % 8 == 0 && doodleBugPtr->getHasEaten() == false) 
                         {
-                            doodleBugPtr = NULL;
+                            boardObj.removeCritter(i, j);
                         }
                     }
                 }
@@ -87,6 +87,10 @@ void Game::playGame()
                         if (antPtr->getCritAge() >= 3 && antPtr->getCritAge() == 3)
                         {
                             antPtr->critBreed(boardObj.getBoard());
+                        }
+                        if (antPtr->getCritAge() % 3 == 0 && antPtr->getHasEaten() == false) 
+                        {
+                            boardObj.removeCritter(i, j);
                         }
                     }
                 }

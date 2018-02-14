@@ -12,6 +12,7 @@ Doodlebug::Doodlebug(int row, int col) {
 	setColPosition(col);
 	setCritAge(0);
     setJustMoved(false);
+    setHasEaten(false);
 }
 
 Doodlebug::~Doodlebug()
@@ -50,7 +51,7 @@ void Doodlebug::critMove(Critter*** boardPtr) {
 }
 
 void Doodlebug::critBreed(Critter*** boardPtr) {
-	if (this->getCritAge() >= 3) {	
+	if (this->getCritAge() >= 8) {	
 
 		bool doodlebugBreed = true;				//Bool to check loop conditions
 		int randArr[] = { 0, 0, 0, 0 };		//Array to track if all available directions have been checked for breeding
