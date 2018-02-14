@@ -88,10 +88,6 @@ void Game::playGame()
                         {
                             antPtr->critBreed(boardObj.getBoard());
                         }
-                        if (antPtr->getCritAge() % 3 == 0 && antPtr->getHasEaten() == false) 
-                        {
-                            boardObj.removeCritter(i, j);
-                        }
                     }
                 }
 			}

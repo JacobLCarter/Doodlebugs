@@ -12,7 +12,6 @@ Ant::Ant(int row, int col) {
 	setColPosition(col);
 	setCritAge(0);
     setJustMoved(false);
-    setHasEaten(false);
     
 }
 
