@@ -10,6 +10,9 @@ Game::Game(int numTurns)
 	this->turns = numTurns;
 }
 
+Game::~Game()
+{
+}
 
 /*This function implements the game.*/
 void Game::playGame()
