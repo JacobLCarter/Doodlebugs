@@ -11,6 +11,8 @@ Ant::Ant(int row, int col) {
 	setRowPosition(row);
 	setColPosition(col);
 	setCritAge(0);
+    setJustMoved(false);
+    
 }
 
 Ant::~Ant()
