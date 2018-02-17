@@ -2,6 +2,8 @@
 This is the Game.cpp file. It contains the implementation for the game. 
 ************************************************************************/
 #include "Game.hpp"
+#include"Board.hpp"
+
 
 /*constructor takes an integer parameter and sets the
 number of times the play game function will loop for. */
@@ -10,9 +12,6 @@ Game::Game(int numTurns)
 	this->turns = numTurns;
 }
 
-Game::~Game()
-{
-}
 
 /*This function implements the game.*/
 void Game::playGame()
@@ -53,7 +52,7 @@ void Game::playGame()
 						}
 
 						//if the critter has not eaten in 3 time steps it dies (ie nullptr)
-						if (doodleBugPtr->getCritAge() >= 8 && doodleBugPtr->getLastEaten() >= 8)
+						if ( doodleBugPtr->getLastEaten() >= 3)
 						{
 							boardObj.removeCritter(i, j);
 						}
