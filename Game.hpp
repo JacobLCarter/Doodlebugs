@@ -6,11 +6,11 @@
 class Game
 {
 public:
-	void playGame();
-	Game();
-	Game(int);
+    Game();
+    Game(int);
     ~Game();
+    playGame();
 private:
-	int turns;
+    int turns;
 };
 #endif
