@@ -5,12 +5,12 @@
 
 class Game
 {
-    public:
-        Game();
-        Game(int);
-        ~Game();
-        void playGame();
-    private:
-        int turns;
+public:
+	void playGame();
+	Game();
+	Game(int);
+    ~Game();
+private:
+	int turns;
 };
 #endif
