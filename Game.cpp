@@ -1,5 +1,6 @@
+
 #include "Game.hpp"
-//#include"Critter.hpp"
+
 
 /*constructor takes an integer parameter and sets the
 number of times the play game function will loop for. */
@@ -8,21 +9,26 @@ Game::Game(int numTurns)
 	this->turns = numTurns;
 }
 
+
 Game::~Game()
 {
 }
+
 
 /*This function implements the game. Note that we may need some additional
 functionality in the critter class and its subclasses for this to actully work. 
 Please see the comments for details.*/
 void Game::playGame()
 {
+
     Board boardObj;
+
 
 	//for the number of time steps specified by the user, play the game
 	for (int index  = 0; index < this->turns; index++)
 	{
 		//loop through the whole board. 
+
 		for (int i = 0; i < boardObj.getRows(); i++)
 		{
 			for (int j = 0; j < boardObj.getCols(); j++)
@@ -60,11 +66,13 @@ void Game::playGame()
                         }
                     }
                 }
+
 			}
 		}
 
 
 		//loop through the whole board again. This time for the Ants to do their thing 
+
 		for (int i = 0; i < boardObj.getRows(); i++)
 		{
 			for (int j = 0; j < boardObj.getCols(); j++)
@@ -90,10 +98,11 @@ void Game::playGame()
                         }
                     }
                 }
+
 			}
 
 			//reset all of the critters so that they have not just moved
-			//(In preperation for the next loop)
+
 			for (int i = 0; i < boardObj.getRows(); i++)
 			{
 				for (int j = 0; j < boardObj.getCols(); j++)
@@ -103,14 +112,15 @@ void Game::playGame()
 
 					//if not null it must point to an ant or a doodlebug
 					if (antOrDoodleBugPtr != NULL)
+
 					{
 						antOrDoodleBugPtr->setJustMoved(false);
 					}
 				}
 			}
+
 		}
         boardObj.printBoard();
 	}
-    
-    boardObj.deleteBoard();
+      boardObj.deleteBoard();
 }
