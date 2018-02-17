@@ -9,7 +9,7 @@ public:
     Game();
     Game(int);
     ~Game();
-    playGame();
+    void playGame();
 private:
     int turns;
 };
