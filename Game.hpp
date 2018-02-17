@@ -1,15 +1,16 @@
 #ifndef GAME_HPP
 #define GAME_HPP
+
+#include "board.hpp"
+
 class Game
 {
 public:
-	void playGame();
-	Game();
-	Game(int);
-
+    Game();
+    Game(int);
+    ~Game();
+    void playGame();
 private:
-	int turns;
-	int currentTurns;
+    int turns;
 };
-
 #endif
