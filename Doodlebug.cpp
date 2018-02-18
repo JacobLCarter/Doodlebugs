@@ -41,12 +41,13 @@ void Doodlebug::critMove(Critter*** boardPtr, int rowEdge, int colEdge) {
 	}
 			break;
 	case 4: if (this->getColPosition() != 0 && boardPtr[this->getRowPosition()][this->getColPosition()-1] == NULL) {		//left
-		boardPtr[this->getRowPosition()][this->getColPosition() + 1] = this;
+		boardPtr[this->getRowPosition()][this->getColPosition() - 1] = this;
 		boardPtr[this->getRowPosition()][this->getColPosition()] = NULL;
 		this->setColPosition(this->getColPosition() - 1);
 	}
 			break;
 	}
+    this->incrementLastEaten();
 	this->setCritAge(getCritAge() + 1);
 }
 

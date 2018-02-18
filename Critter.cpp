@@ -51,3 +51,8 @@ void Critter::setLastEaten(int days)
     lastEaten = days;
 }
 
+void Critter::incrementLastEaten()
+{
+    lastEaten++;
+}
+

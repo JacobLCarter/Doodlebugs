@@ -21,6 +21,7 @@ public:
 
 	int getLastEaten();
     void setLastEaten(int);
+    void incrementLastEaten();
 
     virtual void critMove(Critter***, int, int) = 0;
 	virtual void critBreed(Critter***, int, int) = 0;
