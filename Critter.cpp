@@ -37,7 +37,7 @@ void Critter::setJustMoved(bool move) {
     justMoved = move;
 }
 
-bool Critter::getLastEaten()
+int Critter::getLastEaten()
 {
     return lastEaten;
 }

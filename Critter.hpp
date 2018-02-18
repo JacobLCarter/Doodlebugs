@@ -19,7 +19,7 @@ public:
     bool getJustMoved();
     void setJustMoved(bool);
 
-	bool getLastEaten();
+	int getLastEaten();
     void setLastEaten(int);
 
     virtual void critMove(Critter***, int, int) = 0;

@@ -22,25 +22,25 @@ Doodlebug::~Doodlebug()
 void Doodlebug::critMove(Critter*** boardPtr, int rowEdge, int colEdge) {
 	int direction = rand() % 4 + 1;
 	switch (direction) {
-	case 1: if (boardPtr[this->getRowPosition()-1][this->getColPosition()] == NULL && this->getRowPosition() != 0) {		//up
+	case 1: if (this->getRowPosition() != 0 && boardPtr[this->getRowPosition()-1][this->getColPosition()] == NULL) {		//up
 		boardPtr[this->getRowPosition() - 1][this->getColPosition()] = this;			//move doodlebug in the array
 		boardPtr[this->getRowPosition()][this->getColPosition()] = NULL;				//set old position to null
 		this->setRowPosition(this->getRowPosition() - 1);								//change position in doodlebug object
 	}
 			break;
-	case 2: if (boardPtr[this->getRowPosition()][this->getColPosition()+1] == NULL && this->getColPosition() != colEdge) {		//right
+	case 2: if (this->getColPosition() != colEdge && boardPtr[this->getRowPosition()][this->getColPosition()+1] == NULL) {		//right
 		boardPtr[this->getRowPosition()][this->getColPosition() + 1] = this;
 		boardPtr[this->getRowPosition()][this->getColPosition()] = NULL;
 		this->setColPosition(this->getColPosition() + 1);
 	}
 			break;
-	case 3: if (boardPtr[this->getRowPosition()+1][this->getColPosition()] == NULL && this->getRowPosition() != rowEdge) {		//down
+	case 3: if (this->getRowPosition() != rowEdge && boardPtr[this->getRowPosition()+1][this->getColPosition()] == NULL) {		//down
 		boardPtr[this->getRowPosition() + 1][this->getColPosition()] = this;
 		boardPtr[this->getRowPosition()][this->getColPosition()] = NULL;
 		this->setRowPosition(this->getRowPosition() + 1);
 	}
 			break;
-	case 4: if (boardPtr[this->getRowPosition()][this->getColPosition()-1] == NULL && this->getColPosition() != 0) {		//left
+	case 4: if (this->getColPosition() != 0 && boardPtr[this->getRowPosition()][this->getColPosition()-1] == NULL) {		//left
 		boardPtr[this->getRowPosition()][this->getColPosition() + 1] = this;
 		boardPtr[this->getRowPosition()][this->getColPosition()] = NULL;
 		this->setColPosition(this->getColPosition() - 1);
@@ -58,25 +58,25 @@ void Doodlebug::critBreed(Critter*** boardPtr, int rowEdge, int colEdge) {
 		while (doodlebugBreed) {
 			int direction = rand() % 4 + 1;
 			switch (direction) {	
-			case 1: if (boardPtr[this->getRowPosition() - 1][this->getColPosition()] == NULL && this->getRowPosition() != 0) {		//up
+			case 1: if (this->getRowPosition() != 0 && boardPtr[this->getRowPosition() - 1][this->getColPosition()] == NULL) {		//up
 				boardPtr[this->getRowPosition() - 1][this->getColPosition()] = new Doodlebug((this->getRowPosition() - 1), this->getColPosition());
 				doodlebugBreed = false;
 			}
 					randArr[0] = 1;
 					break;
-			case 2: if (boardPtr[this->getRowPosition()][this->getColPosition() + 1] == NULL && this->getColPosition() != colEdge) {		//right
+			case 2: if (this->getColPosition() != colEdge && boardPtr[this->getRowPosition()][this->getColPosition() + 1] == NULL) {		//right
 				boardPtr[this->getRowPosition()][this->getColPosition() + 1] = new Doodlebug(this->getRowPosition(), (this->getColPosition() + 1));
 				doodlebugBreed = false;
 			}
 					randArr[1] = 1;
 					break;
-			case 3: if (boardPtr[this->getRowPosition() + 1][this->getColPosition()] == NULL && this->getRowPosition() != rowEdge) {		//down
+			case 3: if (this->getRowPosition() != rowEdge && boardPtr[this->getRowPosition() + 1][this->getColPosition()] == NULL) {		//down
 				boardPtr[this->getRowPosition() + 1][this->getColPosition()] = new Doodlebug((this->getRowPosition() + 1), this->getColPosition());
 				doodlebugBreed = false;
 			}
 					randArr[2] = 1;
 					break;
-			case 4: if (boardPtr[this->getRowPosition()][this->getColPosition() - 1] == NULL && this->getColPosition != 0) {		//left
+			case 4: if (this->getColPosition() != 0 && boardPtr[this->getRowPosition()][this->getColPosition() - 1] == NULL) {		//left
 				boardPtr[this->getRowPosition()][(this->getColPosition() - 1)] = new Doodlebug(this->getRowPosition(), (this->getColPosition() - 1));
 				doodlebugBreed = false;
 			}
