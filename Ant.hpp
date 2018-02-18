@@ -9,7 +9,7 @@ public:
 	Ant();
 	Ant(int, int);
 	~Ant();
-	virtual void critMove(Critter***);
-	virtual void critBreed(Critter***);
+	virtual void critMove(Critter***, int, int);
+	virtual void critBreed(Critter***, int, int);
 };
 #endif

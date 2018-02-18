@@ -22,8 +22,8 @@ public:
 	bool getLastEaten();
     void setLastEaten(int);
 
-    virtual void critMove(Critter***) = 0;
-	virtual void critBreed(Critter***) = 0;
+    virtual void critMove(Critter***, int, int) = 0;
+	virtual void critBreed(Critter***, int, int) = 0;
 protected:
 	int colPosition;
 	int rowPosition;

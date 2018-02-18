@@ -19,28 +19,28 @@ Ant::~Ant()
 {
 }
 
-void Ant::critMove(Critter*** boardPtr) {
+void Ant::critMove(Critter*** boardPtr, int rowEdge, int colEdge) {
 	int direction = rand() % 4 + 1;
 	switch (direction) {
-	case 1: if (boardPtr[this->getRowPosition()-1][this->getColPosition()] == NULL) {		//up
+	case 1: if (boardPtr[this->getRowPosition()-1][this->getColPosition()] == NULL && this->getRowPosition() !=0) {		//up
 		boardPtr[this->getRowPosition() - 1][this->getColPosition()] = this;			//move ant in the array
 		boardPtr[this->getRowPosition()][this->getColPosition()] = NULL;				//set old position to null
 		this->setRowPosition(this->getRowPosition() - 1);								//change position in ant object
 	}
 			break;
-	case 2: if (boardPtr[this->getRowPosition()][this->getColPosition()+1] == NULL) {		//right
+	case 2: if (boardPtr[this->getRowPosition()][this->getColPosition()+1] == NULL && this->getColPosition() != colEdge) {		//right
 		boardPtr[this->getRowPosition()][this->getColPosition() + 1] = this;
 		boardPtr[this->getRowPosition()][this->getColPosition()] = NULL;
 		this->setColPosition(this->getColPosition() + 1);
 	}
 			break;
-	case 3: if (boardPtr[this->getRowPosition()+1][this->getColPosition()] == NULL) {		//down
+	case 3: if (boardPtr[this->getRowPosition()+1][this->getColPosition()] == NULL && this->getRowPosition() != rowEdge) {		//down
 		boardPtr[this->getRowPosition() + 1][this->getColPosition()] = this;
 		boardPtr[this->getRowPosition()][this->getColPosition()] = NULL;
 		this->setRowPosition(this->getRowPosition() + 1);
 	}
 			break;
-	case 4: if (boardPtr[this->getRowPosition()][this->getColPosition()-1] == NULL) {		//left
+	case 4: if (boardPtr[this->getRowPosition()][this->getColPosition()-1] == NULL	&& this->getColPosition() != 0) {		//left
 		boardPtr[this->getRowPosition()][this->getColPosition() + 1] = this;
 		boardPtr[this->getRowPosition()][this->getColPosition()] = NULL;
 		this->setColPosition(this->getColPosition() - 1);
@@ -50,7 +50,7 @@ void Ant::critMove(Critter*** boardPtr) {
 	this->setCritAge(getCritAge() + 1);
 }
 
-void Ant::critBreed(Critter*** boardPtr) {
+void Ant::critBreed(Critter*** boardPtr, int rowEdge, int colEdge) {
 	if (this->getCritAge() >= 3) {	
 
 		bool antBreed = true;				//Bool to check loop conditions
@@ -58,25 +58,25 @@ void Ant::critBreed(Critter*** boardPtr) {
 		while (antBreed) {
 			int direction = rand() % 4 + 1;
 			switch (direction) {	
-			case 1: if (boardPtr[this->getRowPosition() - 1][this->getColPosition()] == NULL) {		//up
+			case 1: if (boardPtr[this->getRowPosition() - 1][this->getColPosition()] == NULL && this->getRowPosition() != 0) {		//up
 				boardPtr[this->getRowPosition() - 1][this->getColPosition()] = new Ant((this->getRowPosition() - 1), this->getColPosition());
 				antBreed = false;
 			}
 					randArr[0] = 1;
 					break;
-			case 2: if (boardPtr[this->getRowPosition()][this->getColPosition() + 1] == NULL) {		//right
+			case 2: if (boardPtr[this->getRowPosition()][this->getColPosition() + 1] == NULL && this->getColPosition() != colEdge) {		//right
 				boardPtr[this->getRowPosition()][this->getColPosition() + 1] = new Ant(this->getRowPosition(), (this->getColPosition() + 1));
 				antBreed = false;
 			}
 					randArr[1] = 1;
 					break;
-			case 3: if (boardPtr[this->getRowPosition() + 1][this->getColPosition()] == NULL) {		//down
+			case 3: if (boardPtr[this->getRowPosition() + 1][this->getColPosition()] == NULL && this->getRowPosition() != rowEdge) {		//down
 				boardPtr[this->getRowPosition() + 1][this->getColPosition()] = new Ant((this->getRowPosition() + 1), this->getColPosition());
 				antBreed = false;
 			}
 					randArr[2] = 1;
 					break;
-			case 4: if (boardPtr[this->getRowPosition()][this->getColPosition() - 1] == NULL) {		//left
+			case 4: if (boardPtr[this->getRowPosition()][this->getColPosition() - 1] == NULL && this->getColPosition() !=0) {		//left
 				boardPtr[this->getRowPosition()][(this->getColPosition() - 1)] = new Ant(this->getRowPosition(), (this->getColPosition() - 1));
 				antBreed = false;
 			}
