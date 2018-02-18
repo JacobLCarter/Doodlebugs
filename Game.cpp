@@ -1,5 +1,5 @@
 /***********************************************************************
-This is the Game.cpp file. It contains the implementation for the game. 
+This is the Game.cpp file. It contains the implementation for the game.
 ************************************************************************/
 #include "Game.hpp"
 
@@ -10,9 +10,6 @@ Game::Game(int numTurns)
 	this->turns = numTurns;
 }
 
-Game::~Game()
-{
-}
 
 /*This function implements the game.*/
 void Game::playGame()
@@ -47,13 +44,13 @@ void Game::playGame()
 
 						/*if the doodleBug is old enough to breed and it has been 8
 						days since breeding. */
-						if (doodleBugPtr->getCritAge() % 8 == 0)
+						if (doodleBugPtr->getCritAge() % 8 == 0 && doodleBugPtr->getCritAge() != 0)
 						{
 							doodleBugPtr->critBreed(boardObj.getBoard(), boardObj.getRows() - 1, boardObj.getCols() - 1);
 						}
 
 						//if the critter has not eaten in 3 time steps it dies (ie nullptr)
-						if ( doodleBugPtr->getLastEaten() >= 3)
+						if (doodleBugPtr->getLastEaten() >= 3)
 						{
 							boardObj.removeCritter(i, j);
 						}
@@ -85,7 +82,7 @@ void Game::playGame()
 						antPtr->setJustMoved(true);
 
 						//if ant is older that 3 and has not bred in the last 3 days
-						if (antPtr->getCritAge() % 3 == 0)
+						if (antPtr->getCritAge() % 3 == 0 && antPtr->getCritAge != 0)
 						{
 							antPtr->critBreed(boardObj.getBoard(), boardObj.getRows() - 1, boardObj.getCols() - 1);
 						}
@@ -116,4 +113,3 @@ void Game::playGame()
 		boardObj.printBoard();
 	}
 	boardObj.deleteBoard();
-}
