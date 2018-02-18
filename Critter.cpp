@@ -1,5 +1,9 @@
 #include "Critter.hpp"
 
+Critter::~Critter()
+{
+}
+
 int Critter::getColPosition() {
 	return colPosition;
 }

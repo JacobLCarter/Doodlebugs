@@ -6,7 +6,7 @@
  * and prey simulation.
  ******************************************************************************/
 
-#include "game.hpp"
+#include "Game.hpp"
 #include "utils.hpp"
 #include <iostream>
 #include <string>

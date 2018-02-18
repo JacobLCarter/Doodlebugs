@@ -2,8 +2,6 @@
 This is the Game.cpp file. It contains the implementation for the game. 
 ************************************************************************/
 #include "Game.hpp"
-#include"Board.hpp"
-
 
 /*constructor takes an integer parameter and sets the
 number of times the play game function will loop for. */
@@ -12,6 +10,9 @@ Game::Game(int numTurns)
 	this->turns = numTurns;
 }
 
+Game::~Game()
+{
+}
 
 /*This function implements the game.*/
 void Game::playGame()
@@ -39,7 +40,7 @@ void Game::playGame()
 					if (doodleBugPtr->getCritType() == 'X' && !doodleBugPtr->getJustMoved())
 					{
 						//call the critMove() function to make the doodleBug do its thing
-						doodleBugPtr->critMove(boardObj.getBoard());
+						doodleBugPtr->critMove(boardObj.getBoard(), boardObj.getRows() - 1, boardObj.getCols() - 1);
 
 						//Set moved to true so the critter is not selected during the next loop
 						doodleBugPtr->setJustMoved(true);
@@ -48,7 +49,7 @@ void Game::playGame()
 						days since breeding. */
 						if (doodleBugPtr->getCritAge() % 8 == 0)
 						{
-							doodleBugPtr->critBreed(boardObj.getBoard());
+							doodleBugPtr->critBreed(boardObj.getBoard(), boardObj.getRows() - 1, boardObj.getCols() - 1);
 						}
 
 						//if the critter has not eaten in 3 time steps it dies (ie nullptr)
@@ -78,7 +79,7 @@ void Game::playGame()
 					if (antPtr->getCritType() == 'O' && !antPtr->getJustMoved())
 					{
 						//call the crit move function to make the critter move
-						antPtr->critMove(boardObj.getBoard());
+						antPtr->critMove(boardObj.getBoard(), boardObj.getRows() - 1, boardObj.getCols() - 1);
 
 						//set justMoved to true. (Once again, we need this in the critter class)
 						antPtr->setJustMoved(true);
@@ -86,7 +87,7 @@ void Game::playGame()
 						//if ant is older that 3 and has not bred in the last 3 days
 						if (antPtr->getCritAge() % 3 == 0)
 						{
-							antPtr->critBreed(boardObj.getBoard());
+							antPtr->critBreed(boardObj.getBoard(), boardObj.getRows() - 1, boardObj.getCols() - 1);
 						}
 					}
 				}
