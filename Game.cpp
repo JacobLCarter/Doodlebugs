@@ -10,13 +10,14 @@ Game::Game(int numTurns)
 	this->turns = numTurns;
 }
 
+Game::~Game()
+{
+}
 
 /*This function implements the game.*/
 void Game::playGame()
 {
-
 	Board boardObj;
-
 
 	//for the number of time steps specified by the user, play the game
 	for (int index = 0; index < this->turns; index++)
@@ -56,7 +57,6 @@ void Game::playGame()
 						}
 					}
 				}
-
 			}
 		}
 
@@ -88,7 +88,6 @@ void Game::playGame()
 						}
 					}
 				}
-
 			}
 
 			//reset all of the critters so that they have not just moved
@@ -108,8 +107,8 @@ void Game::playGame()
 					}
 				}
 			}
-
 		}
 		boardObj.printBoard();
 	}
-	boardObj.deleteBoard();
+    boardObj.deleteBoard();
+}

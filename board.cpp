@@ -108,11 +108,7 @@ void Board::initializeBoard()
  ******************************************************************************/
 void Board::addAnt(int x, int y)
 {
-    //if the space is not occupied, create an Ant
-    if (theBoard[x][y] == NULL)
-    {
-        theBoard[x][y] = new Ant(x, y); 
-    }
+    theBoard[x][y] = new Ant(x, y); 
 }
 
 /*******************************************************************************
@@ -121,11 +117,7 @@ void Board::addAnt(int x, int y)
  ******************************************************************************/
 void Board::addDoodlebug(int x, int y)
 {
-    //if the space is not occupied, create a Doodlebug
-    if (theBoard[x][y] == NULL)
-    {
-        theBoard[x][y] = new Doodlebug(x, y);    
-    }
+    theBoard[x][y] = new Doodlebug(x, y);    
 }
 
 /*******************************************************************************
@@ -195,10 +187,6 @@ void Board::avoidEdge(Critter *crit)
     }
 }
 
-/*******************************************************************************
- * Name: deleteBoard
- * Description: Frees all dynamic memory allocated by the board 
- ******************************************************************************/
 void Board::deleteBoard()
 {
     for (int i = 0; i < rows; i++)
