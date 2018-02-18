@@ -24,12 +24,14 @@ public:
 
     virtual void critMove(Critter***, int, int) = 0;
 	virtual void critBreed(Critter***, int, int) = 0;
+
+    virtual ~Critter();
 protected:
 	int colPosition;
 	int rowPosition;
 	int critAge;
 	char critType;
     bool justMoved;
-    bool lastEaten;
+    int lastEaten;
 };
 #endif
