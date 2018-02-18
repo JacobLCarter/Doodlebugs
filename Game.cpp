@@ -82,7 +82,7 @@ void Game::playGame()
 						antPtr->setJustMoved(true);
 
 						//if ant is older that 3 and has not bred in the last 3 days
-						if (antPtr->getCritAge() % 3 == 0 && antPtr->getCritAge != 0)
+						if (antPtr->getCritAge() % 3 == 0 && antPtr->getCritAge() != 0)
 						{
 							antPtr->critBreed(boardObj.getBoard(), boardObj.getRows() - 1, boardObj.getCols() - 1);
 						}
