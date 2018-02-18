@@ -84,7 +84,7 @@ void Ant::critBreed(Critter*** boardPtr, int rowEdge, int colEdge) {
 					break;
 			}
 			int count = 0;
-			while (count < 3) {				//loop to check if direction has been looped through
+			while (count < 4) {				//loop to check if direction has been looped through
 				if (randArr[count] == 0) {
 					antBreed = true;
 					break;
