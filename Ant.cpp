@@ -45,7 +45,7 @@ void Ant::critMove(Critter*** boardPtr, int rowEdge, int colEdge) {
 		boardPtr[this->getRowPosition()][this->getColPosition()] = NULL;
 		this->setColPosition(this->getColPosition() - 1);
 	}
-			break;
+		
 	}
 	this->setCritAge(getCritAge() + 1);
 }
@@ -81,7 +81,7 @@ void Ant::critBreed(Critter*** boardPtr, int rowEdge, int colEdge) {
 				antBreed = false;
 			}
 					randArr[3] = 1;
-					break;
+				
 			}
 			int count = 0;
 			while (count < 4) {				//loop to check if direction has been looped through

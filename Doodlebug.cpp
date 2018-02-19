@@ -81,7 +81,7 @@ void Doodlebug::critMove(Critter*** boardPtr, int rowEdge, int colEdge) {
                this->setColPosition(this->getColPosition()-1);  //change position in the doodlebug object
                antSearch = false;
             }
-            break;
+            
          }
       }
       //reset doodlebug's starvation counter
@@ -118,7 +118,7 @@ void Doodlebug::critMove(Critter*** boardPtr, int rowEdge, int colEdge) {
             boardPtr[this->getRowPosition()][this->getColPosition()] = NULL;
             this->setColPosition(this->getColPosition() - 1);
          }
-         break;
+        
       }
       this->incrementLastEaten();
    }
@@ -156,7 +156,7 @@ void Doodlebug::critBreed(Critter*** boardPtr, int rowEdge, int colEdge) {
 				doodlebugBreed = false;
 			}
 					randArr[3] = 1;
-					break;
+					
 			}
 			int count = 0;
 			while (count < 4) {				//loop to check if direction has been looped through
@@ -167,6 +167,7 @@ void Doodlebug::critBreed(Critter*** boardPtr, int rowEdge, int colEdge) {
 				else {
 					doodlebugBreed = false;
 					count++;
+					break;
 				}
 
 			}
