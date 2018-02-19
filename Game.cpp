@@ -2,7 +2,7 @@
 This is the Game.cpp file. It contains the implementation for the game.
 ************************************************************************/
 #include "Game.hpp"
-
+#include<iostream>
 /*constructor takes an integer parameter and sets the
 number of times the play game function will loop for. */
 Game::Game(int numTurns)
@@ -38,15 +38,12 @@ void Game::playGame()
               //call the critMove() function to make the doodleBug do its thing
               doodleBugPtr->critMove(boardObj.getBoard(), boardObj.getRows() - 1, boardObj.getCols() - 1);
 
-             //Set moved to true so the critter is not selected during the next loop
-             doodleBugPtr->setJustMoved(true);
+              //Set moved to true so the critter is not selected during the next loop
+              doodleBugPtr->setJustMoved(true);
 
-             /*if the doodleBug is old enough to breed and it has been 8
-		days since breeding. */
-                if (doodleBugPtr->getCritAge() % 8 == 0 && doodleBugPtr->getCritAge() != 0)
-		{
-			doodleBugPtr->critBreed(boardObj.getBoard(), boardObj.getRows() - 1, boardObj.getCols() - 1);
-		}
+              //call the critBreed() function on the critter
+	      doodleBugPtr->critBreed(boardObj.getBoard(), boardObj.getRows() - 1, boardObj.getCols() - 1);
+	
 
 		//if the critter has not eaten in 3 time steps it dies (ie nullptr)
 		if (doodleBugPtr->getLastEaten() >= 3)
@@ -77,11 +74,9 @@ void Game::playGame()
 			//set justMoved to true. (Once again, we need this in the critter class)
 			antPtr->setJustMoved(true);
 
-			//if ant is older that 3 and has not bred in the last 3 days
-			if (antPtr->getCritAge() % 3 == 0 && !antPtr->getCritAge() == 0)
-			{
-				antPtr->critBreed(boardObj.getBoard(), boardObj.getRows() - 1, boardObj.getCols() - 1);
-			}
+			//call the breed function on the critter
+			antPtr->critBreed(boardObj.getBoard(), boardObj.getRows() - 1, boardObj.getCols() - 1);
+                        std::cout << i << " " << j << " an ant is breeding" << std::endl;
 		}
          }
       }
