@@ -1,6 +1,6 @@
 #ifndef GAME_HPP
 #define GAME_HPP
-#indlude<board.hpp>
+#include<board.hpp>
 
 class Game
 {
