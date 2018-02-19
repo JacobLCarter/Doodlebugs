@@ -23,19 +23,19 @@ void Doodlebug::critMove(Critter*** boardPtr, int rowEdge, int colEdge) {
    //check each adjacent space to see if there is an Ant in it
    int adjacentArr[] = {0, 0, 0, 0};
    int numAdjacentAnts = 0;
-   if (this->getRowPosition() != 0 && boardPtr[this->getRowPosition()-1][this->getColPosition()]->getCritType() == 'O') {
+   if (this->getRowPosition() != 0 && boardPtr[this->getRowPosition()-1][this->getColPosition()] != NULL && boardPtr[this->getRowPosition()-1][this->getColPosition()]->getCritType() == 'O') {
       adjacentArr[0] = 1;  //there is an ant to the north
       numAdjacentAnts ++;
    }
-   if (this->getColPosition() != colEdge && boardPtr[this->getRowPosition()][this->getColPosition()+1]->getCritType() == 'O') {
+   if (this->getColPosition() != colEdge && boardPtr[this->getRowPosition()][this->getColPosition()+1] != NULL && boardPtr[this->getRowPosition()][this->getColPosition()+1]->getCritType() == 'O') {
       adjacentArr[1] = 1;  //there is an ant to the east
       numAdjacentAnts ++;
    }
-   if (this->getRowPosition() != rowEdge && boardPtr[this->getRowPosition()+1][this->getColPosition()]->getCritType() == 'O') {
+   if (this->getRowPosition() != rowEdge && boardPtr[this->getRowPosition()+1][this->getColPosition()] != NULL && boardPtr[this->getRowPosition()+1][this->getColPosition()]->getCritType() == 'O') {
       adjacentArr[2] = 1;  //there is an ant to the south
       numAdjacentAnts ++;
    }
-   if (this->getColPosition() != 0 && boardPtr[this->getRowPosition()][this->getColPosition()-1]->getCritType() == 'O') {
+   if (this->getColPosition() != 0 && boardPtr[this->getRowPosition()][this->getColPosition()-1] != NULL && boardPtr[this->getRowPosition()][this->getColPosition()-1]->getCritType() == 'O') {
       adjacentArr[3] = 1;  //there is an ant to the west
       numAdjacentAnts ++;
    }
