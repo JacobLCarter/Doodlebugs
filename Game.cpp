@@ -45,16 +45,10 @@ void Game::playGame()
 	      doodleBugPtr->critBreed(boardObj.getBoard(), boardObj.getRows() - 1, boardObj.getCols() - 1);
 	
 
-		//if the critter has not eaten in 3 time steps it dies (ie nullptr)
-	//	if (doodleBugPtr->getLastEaten() >= 3)
- 	//  	{    
-        //                std::cout << doodleBugPtr->getLastEaten() << std::endl;
-//			boardObj.removeCritter(i, j);
-//		}
-             }
             }
           }
         }
+       }
 
      //loop through the board again and remove all doodlebugs that are have not eated in 3 days
      for(int i = 0; i < boardObj.getRows(); i++)
