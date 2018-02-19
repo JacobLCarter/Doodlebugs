@@ -57,7 +57,7 @@ void Ant::critBreed(Critter*** boardPtr, int rowEdge, int colEdge) {
 		int randArr[] = { 0, 0, 0, 0 };		//Array to track if all available directions have been checked for breeding
 		while (antBreed) {
 			int direction = rand() % 4 + 1;
-			switch (direction = 1) {	
+			switch (direction) {	
 			case 1: if (this->getRowPosition() != 0 && boardPtr[this->getRowPosition() - 1][this->getColPosition()] == NULL) {		//up
 				boardPtr[this->getRowPosition() - 1][this->getColPosition()] = new Ant((this->getRowPosition() - 1), this->getColPosition());
 				antBreed = false;
@@ -87,7 +87,7 @@ void Ant::critBreed(Critter*** boardPtr, int rowEdge, int colEdge) {
 			while (count < 4) {				//loop to check if direction has been looped through
 				if (randArr[count] == 0) {
 					antBreed = true;
-					break;
+					count++;
 				}
 				else {
 					antBreed = false;

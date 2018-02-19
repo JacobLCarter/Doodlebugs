@@ -88,7 +88,7 @@ void Doodlebug::critBreed(Critter*** boardPtr, int rowEdge, int colEdge) {
 			while (count < 4) {				//loop to check if direction has been looped through
 				if (randArr[count] == 0) {
 					doodlebugBreed = true;
-					break;
+					count++;
 				}
 				else {
 					doodlebugBreed = false;
