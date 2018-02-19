@@ -76,7 +76,7 @@ void Game::playGame()
 
 			//call the breed function on the critter
 			antPtr->critBreed(boardObj.getBoard(), boardObj.getRows() - 1, boardObj.getCols() - 1);
-                        std::cout << i << " " << j << " an ant is breeding" << std::endl;
+                       
 		}
          }
       }
