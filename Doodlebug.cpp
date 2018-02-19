@@ -93,6 +93,7 @@ void Doodlebug::critBreed(Critter*** boardPtr, int rowEdge, int colEdge) {
 				else {
 					doodlebugBreed = false;
 					count++;
+					break;
 				}
 
 			}
