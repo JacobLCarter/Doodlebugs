@@ -46,14 +46,29 @@ void Game::playGame()
 	
 
 		//if the critter has not eaten in 3 time steps it dies (ie nullptr)
-		if (doodleBugPtr->getLastEaten() >= 3)
- 	  	{
-			boardObj.removeCritter(i, j);
-		}
+	//	if (doodleBugPtr->getLastEaten() >= 3)
+ 	//  	{    
+        //                std::cout << doodleBugPtr->getLastEaten() << std::endl;
+//			boardObj.removeCritter(i, j);
+//		}
              }
             }
           }
         }
+
+     //loop through the board again and remove all doodlebugs that are have not eated in 3 days
+     for(int i = 0; i < boardObj.getRows(); i++)
+     {
+       for(int j = 0; j < boardObj.getCols(); j++)
+       {
+         if(boardObj.getBoard()[i][j] != NULL && boardObj.getBoard()[i][j]->getCritType() == 'X'
+            && boardObj.getBoard()[i][j]->getLastEaten() >= 3)
+          {
+            boardObj.removeCritter(i, j);
+          }
+           
+       } 
+     }
 
    //loop through the whole board again. This time for the Ants to do their thing 
     for (int i = 0; i < boardObj.getRows(); i++)
