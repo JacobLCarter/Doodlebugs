@@ -1,4 +1,4 @@
-# CS 162 PredPrey
+# Doodlebugs
 
 This is a repository used for collaboration for the group project in OSU's CS 162 course.
 
